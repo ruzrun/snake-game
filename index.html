@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Snake 🐍</title>
+    <link rel="stylesheet" href="snake.css">
+</head>
+<body>
+    <div class="page snake-page">
+        <h1>Love Snake 🐍</h1>
+        <p class="subtitle">Collect the hearts 💕</p>
+
+        <div class="score-board">
+            <div>
+                Score
+                <span id="score">0</span>
+            </div>
+            <div>
+                Best
+                <span id="highScore">0</span>
+            </div>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <p id="gameMessage">Press Start to begin 💕</p>
+
+        <button id="startButton">Start Game 💕</button>
+
+        <div class="mobile-controls">
+            <button class="control-button" id="upButton">⬆️</button>
+            <div class="horizontal-controls">
+                <button class="control-button" id="leftButton">⬅️</button>
+                <button class="control-button" id="downButton">⬇️</button>
+                <button class="control-button" id="rightButton">➡️</button>
+            </div>
+        </div>
+
+        <button class="back-button" id="backButton">
+            ← Back to Precious Letter
+        </button>
+    </div>
+
+    <script src="snake.js"></script>
+</body>
+</html>
