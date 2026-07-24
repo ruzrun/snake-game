@@ -24,22 +24,24 @@ body {
     0% {
         background-position: 0% 50%;
     }
+
     50% {
         background-position: 100% 50%;
     }
+
     100% {
         background-position: 0% 50%;
     }
 }
 
 .page {
-    text-align: center;
-    background: rgba(0, 0, 0, 0.3);
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
     width: 90%;
     max-width: 500px;
+    padding: 30px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
 }
 
 .snake-page h1 {
@@ -50,9 +52,8 @@ body {
 }
 
 .subtitle {
-    font-size: 1em;
-    font-style: italic;
     color: #ffd700;
+    font-style: italic;
     margin-bottom: 20px;
 }
 
@@ -94,8 +95,8 @@ body {
 }
 
 #gameMessage {
-    margin-top: 15px;
     min-height: 22px;
+    margin-top: 15px;
     color: #ffd700;
     font-style: italic;
 }
@@ -103,18 +104,19 @@ body {
 button {
     margin-top: 15px;
     padding: 10px 20px;
-    background-color: rgba(255, 255, 255, 0.3);
     border: none;
-    color: white;
     border-radius: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    font-family: Georgia, serif;
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
 }
 
 button:hover {
-    background-color: rgba(255, 255, 255, 0.6);
-    color: #000;
+    background: rgba(255, 255, 255, 0.6);
+    color: black;
 }
 
 button:active {
@@ -122,10 +124,10 @@ button:active {
 }
 
 .mobile-controls {
-    margin-top: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 15px;
 }
 
 .horizontal-controls {
@@ -143,12 +145,8 @@ button:active {
 
 .back-button {
     display: block;
-    margin: 20px auto 0 auto;
+    margin: 20px auto 0;
     background: rgba(0, 0, 0, 0.25);
-}
-
-.back-button:hover {
-    background: rgba(255, 255, 255, 0.6);
 }
 
 @media (max-width: 500px) {
