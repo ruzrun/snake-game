@@ -16,23 +16,30 @@ let gameRunning = false;
 let gameLoop;
 
 let highScore = localStorage.getItem("loveSnakeHighScore") || 0;
+
 document.getElementById("highScore").textContent = highScore;
 
 function startGame() {
     snake = [
-        { x: 10, y: 10 }
+        {
+            x: 10,
+            y: 10
+        }
     ];
 
     food = createFood();
+
     direction = "RIGHT";
     nextDirection = "RIGHT";
     score = 0;
     gameRunning = true;
 
     document.getElementById("score").textContent = score;
-    document.getElementById("gameMessage").textContent = "Collect the hearts 💕";
+    document.getElementById("gameMessage").textContent =
+        "Collect the hearts 💕";
 
     clearInterval(gameLoop);
+
     gameLoop = setInterval(gameUpdate, 120);
 
     drawGame();
@@ -48,10 +55,21 @@ function gameUpdate() {
         y: snake[0].y
     };
 
-    if (direction === "UP") head.y--;
-    if (direction === "DOWN") head.y++;
-    if (direction === "LEFT") head.x--;
-    if (direction === "RIGHT") head.x++;
+    if (direction === "UP") {
+        head.y--;
+    }
+
+    if (direction === "DOWN") {
+        head.y++;
+    }
+
+    if (direction === "LEFT") {
+        head.x--;
+    }
+
+    if (direction === "RIGHT") {
+        head.x++;
+    }
 
     if (
         head.x < 0 ||
@@ -85,11 +103,18 @@ function gameUpdate() {
 
         if (score > highScore) {
             highScore = score;
-            localStorage.setItem("loveSnakeHighScore", highScore);
-            document.getElementById("highScore").textContent = highScore;
+
+            localStorage.setItem(
+                "loveSnakeHighScore",
+                highScore
+            );
+
+            document.getElementById("highScore").textContent =
+                highScore;
         }
 
         food = createFood();
+
         updateMessage();
     } else {
         snake.pop();
@@ -126,6 +151,7 @@ function drawGame() {
     );
 
     ctx.fillStyle = "rgba(0, 0, 0, 0.15)";
+
     ctx.fillRect(
         0,
         0,
@@ -155,13 +181,31 @@ function drawGrid() {
 
     for (let i = 0; i <= tileCount; i++) {
         ctx.beginPath();
-        ctx.moveTo(i * gridSize, 0);
-        ctx.lineTo(i * gridSize, canvas.height);
+
+        ctx.moveTo(
+            i * gridSize,
+            0
+        );
+
+        ctx.lineTo(
+            i * gridSize,
+            canvas.height
+        );
+
         ctx.stroke();
 
         ctx.beginPath();
-        ctx.moveTo(0, i * gridSize);
-        ctx.lineTo(canvas.width, i * gridSize);
+
+        ctx.moveTo(
+            0,
+            i * gridSize
+        );
+
+        ctx.lineTo(
+            canvas.width,
+            i * gridSize
+        );
+
         ctx.stroke();
     }
 }
@@ -173,6 +217,7 @@ function drawSnakeHead(part) {
     ctx.fillStyle = "#fa93c7";
 
     ctx.beginPath();
+
     ctx.roundRect(
         x + 2,
         y + 2,
@@ -180,11 +225,13 @@ function drawSnakeHead(part) {
         gridSize - 4,
         6
     );
+
     ctx.fill();
 
     ctx.fillStyle = "white";
 
     ctx.beginPath();
+
     ctx.arc(
         x + 7,
         y + 7,
@@ -192,9 +239,11 @@ function drawSnakeHead(part) {
         0,
         Math.PI * 2
     );
+
     ctx.fill();
 
     ctx.beginPath();
+
     ctx.arc(
         x + 13,
         y + 7,
@@ -202,6 +251,7 @@ function drawSnakeHead(part) {
         0,
         Math.PI * 2
     );
+
     ctx.fill();
 }
 
@@ -212,6 +262,7 @@ function drawSnakeBody(part) {
     ctx.fillStyle = "rgba(250, 147, 199, 0.75)";
 
     ctx.beginPath();
+
     ctx.roundRect(
         x + 3,
         y + 3,
@@ -219,6 +270,7 @@ function drawSnakeBody(part) {
         gridSize - 6,
         5
     );
+
     ctx.fill();
 }
 
@@ -226,9 +278,11 @@ function drawHeart(x, y) {
     ctx.save();
 
     ctx.translate(x, y);
+
     ctx.fillStyle = "#ff4f81";
 
     ctx.beginPath();
+
     ctx.moveTo(0, 6);
 
     ctx.bezierCurveTo(
@@ -250,17 +304,20 @@ function drawHeart(x, y) {
     );
 
     ctx.fill();
+
     ctx.restore();
 }
 
 function gameOver() {
     gameRunning = false;
+
     clearInterval(gameLoop);
 
     document.getElementById("gameMessage").textContent =
         `Game Over 💔 Final Score: ${score}`;
 
     drawGame();
+
     drawGameOverScreen();
 }
 
@@ -275,6 +332,7 @@ function drawGameOverScreen() {
     );
 
     ctx.fillStyle = "white";
+
     ctx.textAlign = "center";
 
     ctx.font = "bold 28px Georgia";
@@ -305,7 +363,11 @@ function updateMessage() {
     ];
 
     const randomMessage =
-        messages[Math.floor(Math.random() * messages.length)];
+        messages[
+            Math.floor(
+                Math.random() * messages.length
+            )
+        ];
 
     document.getElementById("gameMessage").textContent =
         randomMessage;
@@ -343,32 +405,35 @@ function changeDirection(newDirection) {
     }
 }
 
-document.addEventListener("keydown", function(event) {
-    if (event.key === "ArrowUp") {
-        changeDirection("UP");
-    }
+document.addEventListener(
+    "keydown",
+    function(event) {
+        if (event.key === "ArrowUp") {
+            changeDirection("UP");
+        }
 
-    if (event.key === "ArrowDown") {
-        changeDirection("DOWN");
-    }
+        if (event.key === "ArrowDown") {
+            changeDirection("DOWN");
+        }
 
-    if (event.key === "ArrowLeft") {
-        changeDirection("LEFT");
-    }
+        if (event.key === "ArrowLeft") {
+            changeDirection("LEFT");
+        }
 
-    if (event.key === "ArrowRight") {
-        changeDirection("RIGHT");
-    }
+        if (event.key === "ArrowRight") {
+            changeDirection("RIGHT");
+        }
 
-    if (
-        event.key === " " ||
-        event.key === "Enter"
-    ) {
-        if (!gameRunning) {
-            startGame();
+        if (
+            event.key === " " ||
+            event.key === "Enter"
+        ) {
+            if (!gameRunning) {
+                startGame();
+            }
         }
     }
-});
+);
 
 document.getElementById("upButton").addEventListener(
     "click",
@@ -398,7 +463,7 @@ document.getElementById("startButton").addEventListener(
 document.getElementById("backButton").addEventListener(
     "click",
     function() {
-        window.location.href = "../../index.html";
+        window.location.href = "../../";
     }
 );
 
@@ -413,7 +478,9 @@ function drawInitialScreen() {
     );
 
     ctx.fillStyle = "rgba(255, 255, 255, 0.7)";
+
     ctx.textAlign = "center";
+
     ctx.font = "20px Georgia";
 
     ctx.fillText(
