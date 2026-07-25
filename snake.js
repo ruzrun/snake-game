@@ -1,6 +1,6 @@
 const backgroundMusic = new Audio("audio/game.mp3");
 
-backgroundMusic.loop = true;
+backgroundMusic.loop = true; 
 backgroundMusic.volume = 0.25;
 
 backgroundMusic.play().catch(() => {
