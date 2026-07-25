@@ -183,3 +183,42 @@ button:active {
 .backbutton:active {
     transform: scale(0.95);
 }
+
+.game-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.game-buttons button {
+    margin-top: 0;
+}
+
+#startButton {
+    white-space: nowrap;
+}
+
+#musicButton,
+#soundButton {
+    font-size: 13px;
+    padding: 10px 12px;
+}
+
+@media (max-width: 500px) {
+    .game-buttons {
+        gap: 5px;
+    }
+
+    #musicButton,
+    #soundButton {
+        font-size: 11px;
+        padding: 9px 7px;
+    }
+
+    #startButton {
+        font-size: 13px;
+        padding: 9px 10px;
+    }
+}
