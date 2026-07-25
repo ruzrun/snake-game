@@ -28,6 +28,22 @@ let gameLoop;
 let highScore = localStorage.getItem("loveSnakeHighScore") || 0;
 document.getElementById("highScore").textContent = highScore;
 
+//to low thwe sound in fade
+function lowerMusicVolume() {
+    if (backgroundMusic.volume <= 0.125) {
+        return;
+    }
+
+    const fade = setInterval(() => {
+        if (backgroundMusic.volume > 0.125) {
+            backgroundMusic.volume -= 0.01;
+        } else {
+            backgroundMusic.volume = 0.125;
+            clearInterval(fade);
+        }
+    }, 50);
+}
+
 function startGame() {
     snake = [
         { x: 10, y: 10 },
@@ -40,6 +56,9 @@ function startGame() {
     score = 0;
     food = createFood();
     gameRunning = true;
+
+    //function to lower the bg sound 
+    lowerMusicVolume();
 
     document.getElementById("score").textContent = score;
     document.getElementById("gameMessage").textContent = "Collect the hearts 💕";
