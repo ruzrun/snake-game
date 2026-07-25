@@ -1,11 +1,12 @@
 const backgroundMusic = new Audio("audio/game.mp3");
-
 backgroundMusic.loop = true;
 backgroundMusic.volume = 0.25;
 
-backgroundMusic.play().catch(() => {
-    console.log("Autoplay blocked by browser.");
-});
+const collectSound = new Audio("audio/collect.mp3");
+collectSound.volume = 0.7;
+
+const gameOverSound = new Audio("audio/gameover.mp3");
+gameOverSound.volume = 0.7;
 
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
