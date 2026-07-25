@@ -22,6 +22,38 @@ const tileCount = 20;
 canvas.width = gridSize * tileCount;
 canvas.height = gridSize * tileCount;
 
+let musicEnabled = true;
+let soundEnabled = true;
+
+const musicButton =
+    document.getElementById("musicButton");
+const soundButton =
+    document.getElementById("soundButton");
+// Background Music ON / OFF
+musicButton.addEventListener("click", function() {
+    musicEnabled = !musicEnabled;
+    if (musicEnabled) {
+        backgroundMusic.muted = false;
+        musicButton.textContent = "🎵 Music On";
+    } else {
+        backgroundMusic.muted = true;
+        musicButton.textContent = "🔇 Music Off";
+    }
+});
+// Sound Effects ON / OFF
+soundButton.addEventListener("click", function() {
+    soundEnabled = !soundEnabled;
+    if (soundEnabled) {
+        collectSound.muted = false;
+        gameOverSound.muted = false;
+        soundButton.textContent = "🔊 SFX On";
+    } else {
+        collectSound.muted = true;
+        gameOverSound.muted = true;
+        soundButton.textContent = "🔇 SFX Off";
+    }
+});
+
 let snake = [];
 let food = {};
 let direction = "RIGHT";
