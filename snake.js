@@ -92,6 +92,9 @@ function gameUpdate() {
         head.y === food.y
     ) {
         score++;
+        //collectsound
+        collectSound.currentTime = 0;
+        collectSound.play();
 
         document.getElementById("score").textContent = score;
 
@@ -232,6 +235,9 @@ function drawFood() {
 function gameOver() {
     gameRunning = false;
     clearInterval(gameLoop);
+
+    gameOverSound.currentTime = 0;
+    gameOverSound.play();
 
     document.getElementById("gameMessage").textContent =
         `Game Over 💔 Final Score: ${score}`;
