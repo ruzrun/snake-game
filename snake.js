@@ -82,6 +82,9 @@ function lowerMusicVolume() {
 }
 
 function startGame() {
+    if (gameRunning) {
+        return;
+    }
     snake = [
         { x: 10, y: 10 },
         { x: 9, y: 10 },
@@ -281,11 +284,21 @@ function drawFood() {
     const x = food.x * gridSize + gridSize / 2;
     const y = food.y * gridSize + gridSize / 2;
 
-    ctx.font = "18px Arial";
+    ctx.save();
+
+    ctx.globalAlpha = 1;
+
+    ctx.font = "20px Arial";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
 
+    // Glow behind the heart
+    ctx.shadowColor = "#ff1493";
+    ctx.shadowBlur = 10;
+
     ctx.fillText("💕", x, y);
+
+    ctx.restore();
 }
 
 function gameOver() {
@@ -448,7 +461,7 @@ function drawInitialScreen() {
     ctx.font = "20px Georgia";
 
     ctx.fillText(
-        "Press Start 💕",
+        "Start 💕",
         canvas.width / 2,
         canvas.height / 2
     );
