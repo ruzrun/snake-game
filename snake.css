@@ -143,12 +143,6 @@ button:active {
     font-size: 20px;
 }
 
-.back-button {
-    display: block;
-    margin: 20px auto 0;
-    background: rgba(0, 0, 0, 0.25);
-}
-
 @media (max-width: 500px) {
     .page {
         padding: 20px;
@@ -161,4 +155,31 @@ button:active {
     #gameCanvas {
         max-width: 330px;
     }
+}
+
+.back-button {
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+
+    background: rgba(0, 0, 0, 0.25);
+    color: white;
+
+    border-radius: 10px;
+    text-decoration: none;
+
+    font-family: Georgia, serif;
+    font-size: 16px;
+
+    transition: 0.3s;
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.6);
+    color: black;
+}
+
+.back-button:active {
+    transform: scale(0.95);
 }
