@@ -157,7 +157,7 @@ button:active {
     }
 }
 
-.back-button {
+.backbutton {
     display: block;
     width: fit-content;
     margin: 20px auto 0;
@@ -175,11 +175,11 @@ button:active {
     transition: 0.3s;
 }
 
-.back-button:hover {
+.backbutton:hover {
     background: rgba(255, 255, 255, 0.6);
     color: black;
 }
 
-.back-button:active {
+.backbutton:active {
     transform: scale(0.95);
 }
