@@ -287,14 +287,12 @@ function drawFood() {
     ctx.save();
 
     ctx.globalAlpha = 1;
+    ctx.shadowColor = "white";
+    ctx.shadowBlur = 10;
 
-    ctx.font = "20px Arial";
+    ctx.font = "18px Arial";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-
-    // Glow behind the heart
-    ctx.shadowColor = "#ff1493";
-    ctx.shadowBlur = 10;
 
     ctx.fillText("💕", x, y);
 
