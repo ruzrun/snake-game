@@ -459,7 +459,7 @@ function drawInitialScreen() {
     ctx.font = "20px Georgia";
 
     ctx.fillText(
-        "Start 💕",
+        "Press Start 💕",
         canvas.width / 2,
         canvas.height / 2
     );
