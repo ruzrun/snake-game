@@ -7,7 +7,7 @@ backgroundMusic.play().catch(() => {
     console.log("Autoplay blocked.");
 });
 
-const collectSound = new Audio("audio/collect.mp3");
+const collectSound = new Audio("audio/collect.mp3"); 
 collectSound.volume = 0.7;
 
 const gameOverSound = new Audio("audio/gameover.mp3");
